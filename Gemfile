@@ -5,7 +5,9 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.2'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
-
+group :test do
+  gem 'shoulda-matchers'
+end
 gem 'pry'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

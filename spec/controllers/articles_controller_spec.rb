@@ -55,8 +55,15 @@ RSpec.describe ArticlesController, :type => :controller do
       expect(article_one.title).to eq attr[:title] 
       expect(article_one.text).to eq attr[:text] 
     end
-
-
   end
 
+  describe "delete" do
+    it "deletes an article" do
+      article_one = Article.create( {:title => "oneone", :text => "asasas"} )
+      article_two = Article.create( title: "onwtwo", text: "asasas" )
+      total_count = Article.all.count
+      delete :destroy , :id => article_one
+      expect(Article.all.count).to eq(total_count - 1)
+    end
+  end
 end
